@@ -1,0 +1,39 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        if (s == null || s.equals("")) return s;
+        int n= s.length() , i=0;
+        String result="";
+        Stack <Character> st = new Stack<>();   
+        while(i<n){
+            if(st.empty() || st.peek()!=s.charAt(i))
+                st.push(s.charAt(i));
+            else
+                st.pop();
+            i++;
+    }
+        while(!st.empty()){
+           char ch= st.peek();
+           st.pop();  
+           result += ch;
+        }
+        
+        // create an empty list of characters
+        List<Character> list = new ArrayList<Character>();
+ 
+        // push every character of the given string into it
+        for (char c: result.toCharArray()) {
+            list.add(c);
+        }
+ 
+        // reverse list using `java.util.Collections` `reverse()`
+        Collections.reverse(list);
+        
+        StringBuilder rs = new StringBuilder(list.size());
+        for (Character c: list) {
+            rs.append(c);
+        }
+ 
+        return rs.toString();
+}
+    
+}

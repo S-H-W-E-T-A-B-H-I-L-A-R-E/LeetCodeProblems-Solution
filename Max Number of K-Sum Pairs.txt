@@ -1,0 +1,20 @@
+class Solution {
+    public int maxOperations(int[] nums, int k) {
+        int count=0, left=0, right=nums.length-1, sum=0;
+        // Sort the array
+        Arrays.sort(nums);
+        while(left<right){
+            sum= nums[left]+nums[right];
+            if(sum==k){
+            left++;
+            right--;
+            count++;
+            }else if(sum>k){
+                right--;
+            }else{
+                left++;
+            }
+        }
+        return count;
+    }
+}

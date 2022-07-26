@@ -1,0 +1,23 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        int pointerA = 0;
+        int pointerB = 0;
+        String result = null;
+        HashSet<Character> hashSet= new HashSet();
+        
+         while(pointerB< s.length()){
+             if(!hashSet.contains(s.charAt(pointerB))){
+                 hashSet.add(s.charAt(pointerB));
+                 pointerB++;
+                 // max = Math.max(hashSet.size(), max);
+                 
+             }else{
+                 hashSet.remove(s.charAt(pointerA));
+                 pointerA++;
+             }
+         }
+        result = hashSet.stream().forEach();
+        return result;
+        
+    }
+}
