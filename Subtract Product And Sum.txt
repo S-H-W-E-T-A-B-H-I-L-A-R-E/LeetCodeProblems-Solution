@@ -1,0 +1,19 @@
+class Solution {
+    public int subtractProductAndSum(int n) {
+        int tmp = 0 ;
+        int sum = 0;
+        int mul = 1;
+    
+        
+        while(n != 0){
+        tmp = n%10;
+        sum = sum + tmp;
+        mul = mul * tmp;
+        n = n/10;
+        }
+        
+        int res = mul - sum ;
+        return res;
+        
+    }
+}
